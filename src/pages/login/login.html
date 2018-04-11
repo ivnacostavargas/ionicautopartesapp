@@ -1,0 +1,42 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding 
+      type="overlay"
+			style="background-image: url(assets/imgs/background.jpeg);">
+  <br><br>
+  <img src="assets/imgs/logoa.png" style="display:block;width:70%;height:auto;margin-left:auto;margin-right:auto;" />
+
+	<br>
+  <form>
+  	<ion-list>
+
+	  <ion-item>
+	    <ion-label floating>Username</ion-label>
+	    <ion-input type="text" [(ngModel)]="credenciales.nickname" name="nickname"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating>Password</ion-label>
+	    <ion-input type="password" [(ngModel)]="credenciales.password" name="password"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+  </form>
+
+  <div>
+	  <button ion-button
+          (click)="login()"
+          block>ENTRAR</button>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar
+  		color="black">
+    <!-- <ion-title>Versión: 0.1.0</ion-title> -->
+   <p style="color:white; text-align: right;">Versión: 0.1.0</p>
+  </ion-toolbar>
+</ion-footer>

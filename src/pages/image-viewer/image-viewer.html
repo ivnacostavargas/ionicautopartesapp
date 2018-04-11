@@ -1,0 +1,18 @@
+
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content 
+		style="background-color:#000000;">
+
+	<zoom-area [(scale)]="scale" (afterZoomIn)="afterZoomIn($event)" (afterZoomOut)="afterZoomOut($event)" [(controls)]="showControls">
+	    <img src="{{ img }}" alt="Zoom It">
+	</zoom-area>
+
+</ion-content>

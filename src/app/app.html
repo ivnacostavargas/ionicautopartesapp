@@ -1,0 +1,30 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="abrirPagina( home )">
+        Inicio
+      </button>
+      <button ion-item (click)="abrirPagina( usuarios )">
+        Usuarios
+      </button>
+      <button ion-item (click)="abrirPagina( categorias )"> 
+        Agregar categorias
+      </button>
+      
+      <ion-list-header>
+          Cerrar sesión
+      </ion-list-header>
+      <button ion-item (click)="logout()">
+        Logout
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

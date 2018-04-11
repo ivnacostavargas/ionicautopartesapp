@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Autoparte</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only
+              (click)="editar()">
+        <ion-icon ios="ios-create" md="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+ 
+<ion-content>
+
+  <!-- PRUENA CARRUSEL 2 -->
+  <ion-slides pager style="height: 50%;">
+
+    <ion-slide style="background-color: black" *ngFor="let foto of autoparte.fotos">
+      <div class="swiper-zoom-container">
+        <img src="{{ URL_IMG + foto.foto }}" (click)="imageViewer( URL_IMG + foto.foto )"/>
+      </div>
+      <!-- <zoom-area [(scale)]="scale" (afterZoomIn)="afterZoomIn($event)" (afterZoomOut)="afterZoomOut($event)" [(controls)]="showControls">
+        <img src="{{ URL_IMG + foto.foto }}" alt="Zoom It"
+                    (click)="imageViewer( URL_IMG + foto.foto )">
+      </zoom-area> -->
+    </ion-slide>
+
+  </ion-slides>
+  <!-- FIN 2 -->
+  <div padding>
+    <h1 style="text-align: center;">{{ autoparte.titulo }}</h1>
+    <p> {{ autoparte.codigo_parte }}</p>
+    <p style="font-weight: bold;">Código Autoparte</p>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>{{ autoparte.marca }}</ion-col>
+        <ion-col col-4>{{ autoparte.modelo }}</ion-col>
+        <ion-col col-4>{{ autoparte.year_inicio + "-" + autoparte.year_fin }}</ion-col>
+      </ion-row>
+      <ion-row style="font-weight: bold;">
+        <ion-col col-4>Marca</ion-col>
+        <ion-col col-4>Modelo</ion-col>
+        <ion-col col-4>Año</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-4>{{ autoparte.estado }}</ion-col>
+        <ion-col col-4>{{ autoparte.precio }}</ion-col>
+        <ion-col col-4>{{ autoparte.lado }}</ion-col>
+      </ion-row>
+      <ion-row style="font-weight: bold;">
+        <ion-col col-4>Estado</ion-col>
+        <ion-col col-4>Precio</ion-col>
+        <ion-col col-4>Lado</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>{{ autoparte.frente }}</ion-col>
+      </ion-row>
+      <ion-row style="font-weight: bold;">
+        <ion-col col-12>Frente</ion-col>
+      </ion-row>
+
+      <ion-row style="font-weight: bold; text-align: center;">
+        <ion-col col-6>
+          <button ion-button icon-only style="border-radius: 100%;"
+                  (click)="regularShare()">
+            <ion-icon ios="ios-git-branch" md="md-git-branch"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button icon-only style="border-radius: 100%;"
+                  (click)="cambiarStatus()" *ngIf="autoparte.status == 'Activo'">
+            <ion-icon ios="logo-usd" md="logo-usd"></ion-icon>
+          </button>
+          <button ion-button icon-only style="border-radius: 100%;"
+                  (click)="cambiarStatus()" *ngIf="autoparte.status == 'Vendido'">
+            <ion-icon ios="ios-undo" md="md-undo"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+  <button ion-button
+          color="danger"
+          (click)="eliminarAutoparte()"
+          block>ELIMINAR AUTOPARTE</button>
+
+</ion-content>

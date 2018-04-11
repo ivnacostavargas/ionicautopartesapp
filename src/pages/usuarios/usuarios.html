@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+	<ion-buttons style="float: left;">
+      <button ion-button
+          icon-only 
+          menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+    </ion-buttons>
+
+    <ion-title>Usuarios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list>
+	  <ion-item *ngFor="let usuario of list_usuarios; let i = index" (click)="modificaUsuario( usuario )">
+	    <ion-avatar item-start>
+	      <img src="assets/imgs/avatar.png">
+	    </ion-avatar>
+	    <h2>{{ usuario.nombre + " " + usuario.apellidos }}</h2>
+	    <h3>{{ usuario.clasificacion }}</h3>
+	    <!-- <p>I've had a pretty messed up day. If we just...</p> -->
+	  </ion-item>
+
+	</ion-list>
+
+
+	<!-- Real floating action button, fixed. It will not scroll with the content -->
+  <ion-fab bottom right>
+    <button ion-fab (click)="crearUsuario()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  
+</ion-content>

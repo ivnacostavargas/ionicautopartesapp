@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Galeria Autoparte</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-list>
+		
+		<ion-grid>
+			<ion-item *ngFor=" let img of list_imagenes; let i = index">
+				<ion-row>
+			    	<ion-col col-9>
+			    		<img src="{{ url_img + img.foto }}" alt="">
+			    	</ion-col>
+			    	<ion-col col-3>
+			    		<button ion-button icon-only
+			    				(click)="eliminarFoto( img.idFoto, i )">
+						  <ion-icon name="trash"></ion-icon>
+						</button>
+			    	</ion-col>
+			  	</ion-row>
+			</ion-item>
+		  
+		</ion-grid>
+	  <!-- <ion-item *ngFor=" let img of list_imagenes">
+	  	<img src="{{ url_img + img.foto }}" alt="">
+	  </ion-item> -->
+
+	</ion-list> 
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+
+    <ion-grid>
+	  <ion-row>
+	    <ion-col col-6>
+	    	<button ion-button
+	    			color="light"
+	    			(click)="takePhoto()"
+	    			block>TOMAR FOTO</button>
+	    </ion-col>
+	    <ion-col col-6>
+			<button ion-button
+					color="light"
+					(click)="uploadPhoto()"
+					block>IR A LA GALERÍA</button>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+	<button ion-button
+			color="light"
+			(click)="finalizar()"
+			block>FINALIZAR</button>
+
+  </ion-toolbar>
+</ion-footer>
